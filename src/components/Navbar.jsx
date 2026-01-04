@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Information from '../assets/information.png'
-import Login from '../assets/enter.png'
 
 function Navbar() {
   const InfoRef = useRef(null)
