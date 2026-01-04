@@ -13,17 +13,17 @@ function ContactUs() {
         formState: { errors, isSubmitted, isSubmitting },
     } = useForm()
 
-    const submitBtnClicked = () => {
-            setsubmitBtnValue("Submitting...")
-        setTimeout(() => {
-            setsubmitBtnValue("Submitted!")
-        }, 3000);
-    }
+    // const submitBtnClicked = () => {
+    //         setsubmitBtnValue("Submitting...")
+    //     setTimeout(() => {
+    //         setsubmitBtnValue("Submitted!")
+    //     }, 3000);
+    // }
 
     const onSubmit = (d_) => console.log(d_)
  
     return (
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center mt-5 mb-15'>
             <div className='border border-gray-400 m-4 rounded-md md:w-[80%] bg-gray-100 min-h-10'>
                 <div className='px-7 pt-5 text-4xl font-bold text-orange-500'>
                     Contact Us
@@ -76,7 +76,7 @@ function ContactUs() {
                                 className='border px-3 sm:px-10 py-2 w-full resize-none sm:w-[70%] wrap-break-word textAreaScrollBar rounded'
                                 placeholder='Your Query'
                                 {...register("UserQuery")}
-                                style={{ height: 'auto', minHeight: '20px', maxHeight: '120px' }}
+                                style={{ height: 'auto', minHeight: '20px', maxHeight: '150px' }}
                                 onInput={(e) => {
                                     e.target.style.height = 'auto';
                                     e.target.style.height = `${e.target.scrollHeight}px`;
@@ -86,12 +86,11 @@ function ContactUs() {
                         <div className='sm:w-[70%]'>
                             <input
                                 type="submit"
-                                value={submitBtnValue}
-                                ref={submitBtnRef}
+                                value={`Submit`}
                                 disabled={
                                     isSubmitted
                                 }
-                                onClick={submitBtnClicked}
+                                // onClick={submitBtnClicked}
                                 className='border border-green-800 text-gray-800 hover:text-black font-bold rounded py-2 bg-green-400 hover:bg-green-500 w-full'
                             />
                         </div>

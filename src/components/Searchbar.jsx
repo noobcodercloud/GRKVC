@@ -4,50 +4,25 @@ import Courses from './suggList.js'
 
 function Searchbar() {
     const [ShowSugg, setShowSugg] = useState(false)
+    const [UserInput, setUserInput] = useState()
     const SuggRef = useRef(null)
 
-    const suggList = Courses.map(e => {
-        return (
-            <div key={e} className='p-3 w-full ml-1.25 border-b border-gray-500/30 hover:bg-gray-200/10 hover:backdrop-filter hover:backdrop-blur transition-all'>
-                <div>
-                    {e}
-                </div>
-            </div>
-        )
+    const FilteredData = Courses.filter((el) => {
+        if (UserInput === '') {
+            return el
+        } else if (el.toLowerCase().includes(UserInput)) {
+            return el
+        }
     })
-    // let SuggListToShow = []
+    
     const HandleInput = (e) => {
-        // suggList = []
-        // SuggListToShow = []
         if (e.target.value) {
             setShowSugg(true)
-            // Courses.forEach(element => {
-            //     if (element.toLowerCase().includes(e.target.value.toLowerCase())) {
-            //         if (!suggList.includes(element)) {
-            //             suggList.push(element)
-            //         }
-            //     }
-            //     // console.log(suggList) // debug
-            // });
         }
         else if (!e.target.value) {
             setShowSugg(false)
         }
-        // suggList = suggList.filter(el => el !== undefined)
-        // // console.log(suggList) // debug
-        // SuggListToShow = suggList.map(e => {
-        //     return (
-        //         <div key={e} className='p-3 w-full ml-1.25 border-b border-gray-500/30 hover:bg-gray-200/10 hover:backdrop-filter hover:backdrop-blur transition-all'>
-        //             <div>
-        //                 {e}
-        //                 {
-        //                     console.log(e)
-        //                 }
-        //             </div>
-        //         </div>
-        //     )
-        // })
-        // console.log(SuggListToShow) // debug
+        setUserInput(e.target.value.toLowerCase())
     }
 
     useEffect((event) => {
@@ -63,8 +38,6 @@ function Searchbar() {
         }
     }, [])
 
-    // console.log(suggList) // debug
-
     return (
         <div>
             <div className='flex items-center justify-center h-20 mb-20 px-5'>
@@ -78,14 +51,24 @@ function Searchbar() {
                             <img src={Search} alt="Search" width={38} className='transition-all cursor-pointer' />
                         </div>
                         <div
-                            className='absolute top-10 bg-gray-200/30 border border-gray-400 rounded-sm w-full h-60 flex flex-col items-center justify-start backdrop-filter backdrop-blur transition-all duration-500 overflow-x-hidden overflow-y-scroll suggListScrollBar'
+                            className='top-10 absolute bg-gray-200/30 border border-gray-400 rounded-sm w-full h-60 flex flex-col items-center justify-start backdrop-filter backdrop-blur transition-all duration-500 overflow-x-hidden overflow-y-scroll suggListScrollBar'
                             style={{
-                                top: ShowSugg ? '40px' : '60px',
-                                opacity: ShowSugg ? '100%' : '0%'
+                                display: ShowSugg ? '' : 'none'
                             }}
                             ref={SuggRef}
                         >
-                            { suggList }
+                            {
+                                FilteredData.map(e => {
+                                    return (
+                                        <div key={e} className='p-3 w-full ml-1.25 border-b border-gray-500/30 hover:bg-gray-200/10 hover:backdrop-filter hover:backdrop-blur transition-all'>
+                                            <div>
+                                                {e}
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+
                         </div>
                     </div>
                 </div>

@@ -40,10 +40,10 @@ function Navbar() {
               {
                 ShowInfoMenu &&
                 <div className='rounded-xl absolute top-7.5 left-0 shadow-[0_6px_20px_rgba(0,0,0,0.9)]'>
-                  <div className='border border-black text-[14px] w-30 h-8 bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center rounded-t-xl cursor-pointer border-b-0 box-border'>
+                  <div className='border border-black text-[14px] w-40 h-10 bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center rounded-t-xl cursor-pointer border-b-0 box-border'>
                     Help & Support
                   </div>
-                  <div className='border border-black text-[14px] w-30 h-8 bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center rounded-b-xl cursor-pointer box-border'>
+                  <div className='border border-black text-[14px] w-40 h-10 bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center rounded-b-xl cursor-pointer box-border'>
                     FAQ
                   </div>
                 </div>
@@ -57,10 +57,10 @@ function Navbar() {
               {
                 ShowLoginMenu &&
                 <div className='rounded-xl absolute top-7.5 right-0 shadow-[0_6px_20px_rgba(0,0,0,0.9)]'>
-                  <div className='border border-black text-[14px] w-30 h-8 bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center rounded-t-xl cursor-pointer border-b-0 box-border'>
+                  <div className='border border-black text-[14px] w-40 h-10 bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center rounded-t-xl cursor-pointer border-b-0 box-border'>
                     Student Login
                   </div>
-                  <div className='border border-black text-[14px] w-30 h-8 bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center rounded-b-xl cursor-pointer box-border'>
+                  <div className='border border-black text-[14px] w-40 h-10 bg-gray-800 hover:bg-gray-700 text-white flex items-center justify-center rounded-b-xl cursor-pointer box-border'>
                     Branch Login
                   </div>
                 </div>

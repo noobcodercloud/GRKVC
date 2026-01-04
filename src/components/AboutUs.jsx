@@ -9,30 +9,37 @@ import linkedin from '../assets/linkedin.png'
 function AboutUs() {
     return (
         <div>
-            <div className='min-h-50 p-5 sm:p-10 flex flex-col gap-5'>
+            <div className='min-h-50 pt-20 px-5 flex flex-col gap-5'>
+                
                 <div>
                     <img src={logo} alt="LOGO" />
                 </div>
                 <div>
-                    GRKVC commenced its Vocational & Professional Skills business in 2015 and over the years has trained more than 50000 students till 2025.
+                    GRKVC commenced its Vocational & Professional Skills business in 2015 and over the years has trained more than 50000 students till 2026.
                 </div>
-                <div className='flex items-center gap-1'>
-                    <div className='h-10 w-10 bg-gray-950 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
+
+                <div className='flex items-center gap-1.5'>
+
+                    <div className='h-10 w-10 bg-gray-900 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
                         <img src={facebook} alt="" width={18}/>
                     </div>
-                    <div className='h-10 w-10 bg-gray-950 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
+
+                    <div className='h-10 w-10 bg-gray-900 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
                         <img src={instagram} alt="" width={18}/>
-                        
                     </div>
-                    <div className='h-10 w-10 bg-gray-950 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
+
+                    <div className='h-10 w-10 bg-gray-900 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
                         <img src={twitter} alt="" width={18}/>
                     </div>
-                    <div className='h-10 w-10 bg-gray-950 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
+
+                    <div className='h-10 w-10 bg-gray-900 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
                         <img src={google} alt="" width={18}/>
                     </div>
-                    <div className='h-10 w-10 bg-gray-950 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
+
+                    <div className='h-10 w-10 bg-gray-900 hover:bg-[#F36371] duration-500 text-white flex items-center justify-center transition-all cursor-pointer'>
                         <img src={linkedin} alt="" width={18}/>
                     </div>
+
                 </div>
             </div>
         </div>

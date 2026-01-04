@@ -1,6 +1,7 @@
 import React from 'react'
 import Gallery from './Gallery.jsx'
 import ArrowRight from '../assets/arrow-right.png'
+import AboutUs from './AboutUs.jsx'
 
 const MenuList = [
   'About Us',
@@ -19,9 +20,9 @@ function Footer() {
 
   const Menu = MenuList.map((e) => {
     return (
-      <div key={e} className='flex gap-3 group items-center cursor-pointer'>
+      <div key={e} className='flex my-3 group items-center cursor-pointer'>
         <div className='group-hover:text-[#F36371] transition-all duration-300 flex items-center justify-center'>
-          <img src={ArrowRight} alt="" width={19}/>
+          <img src={ArrowRight} alt="" width={19} />
         </div>
         <div className='group-hover:text-[#F36371] transition-all duration-500'>
           {e}
@@ -32,19 +33,20 @@ function Footer() {
 
   return (
     <div>
-      <div className='min-h-100 bg-gray-950 flex flex-col sm:flex-row items-center justify-center'>
-        <div className='text-white h-full w-full'>
-          <div className='p-5'>
+      <div className='h-300 sm:h-160 bg-gray-950 flex flex-col sm:flex-row items-center justify-center' >
+
+        <div className='text-white h-full w-full flex flex-col md:px-20'>
+          <AboutUs />
+          <div className='p-5 my-10'>
             {Menu}
           </div>
         </div>
-        <div className='w-full sm:w-fit sm:px-10 grid place-items-center bg-gray-900'>
+
+        <div className='w-full h-full sm:w-fit sm:px-10 grid place-items-center bg-gray-900'>
           <Gallery />
         </div>
       </div>
-      <div >
-        
-      </div>
+
     </div>
   )
 }
