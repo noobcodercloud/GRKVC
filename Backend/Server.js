@@ -1,15 +1,14 @@
 import express from 'express'
 import cors from 'cors'
-import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import User from './Schema/Schema.js'
+
 const app = express()
 const port = 3000
 
 app.use(cors({
   origin: '*',
-  methods: ['GET', 'POST'],
-  credentials: true
+  methods: ['GET', 'POST']
 }))
 app.use(express.json())
 
@@ -33,14 +32,20 @@ app.post('/', async (req, res) => {
       Query: req.body.UserQuery
     })
     await user.save()
-    res.status(201).json({ message: "Success!" }) // SEND A MESSAGE
+    res.status(201).json({ message: "Success!" })
     console.log("Saved user:", user)
   } catch (error) {
     console.error("Error:", error.message);
-    res.status(400).json({ error: error.message }) // SEND ERROR MESSAGE
+    res.status(400).json({ error: error.message })
   }
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// Only for local development
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+  })
+}
+
+// Export for Vercel
+export default app;
