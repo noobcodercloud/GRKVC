@@ -15,17 +15,20 @@ function ContactUs() {
   } = useForm()
 
   const onSubmit = async (data) => {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      }
-    )
+    console.log("Sending data:", data); 
+
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+
+    console.log("Response status:", res.status); 
     const dt = await res.text();
-    console.log(dt)
+    console.log("Response body:", dt); 
+
     setsubmitBtnVal("Submitted!")
     setisSubmittedManual(true)
   }

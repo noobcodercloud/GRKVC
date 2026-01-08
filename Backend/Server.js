@@ -19,6 +19,8 @@ app.get('/', (req, res) => {
 
 app.post('/', async (req, res) => {
   try {
+    console.log("Received data:", req.body);
+    
     const user = new User({
       Name: req.body.FullName,
       Mobile: req.body.MobileNumber,
@@ -27,10 +29,11 @@ app.post('/', async (req, res) => {
       Query: req.body.UserQuery
     })
     await user.save()
-    res.status(201).json()
-    console.log(user)
+    res.status(201).json({ message: "Success!" }) // SEND A MESSAGE
+    console.log("Saved user:", user)
   } catch (error) {
-    res.status(400).json()
+    console.error("Error:", error.message); 
+    res.status(400).json({ error: error.message }) // SEND ERROR MESSAGE
   }
 })
 
