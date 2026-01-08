@@ -6,7 +6,7 @@ import User from './Schema/Schema.js'
 const app = express()
 const port = 3000
 
-app.use(cors())
+app.use(cors({ origin: '*' }))
 app.use(express.json())
 
 mongoose.connect(process.env.MONGODB_URI)
