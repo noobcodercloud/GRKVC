@@ -6,7 +6,11 @@ import User from './Schema/Schema.js'
 const app = express()
 const port = 3000
 
-app.use(cors({ origin: '*' }))
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}))
 app.use(express.json())
 
 mongoose.connect(process.env.MONGODB_URI)
@@ -20,7 +24,7 @@ app.get('/', (req, res) => {
 app.post('/', async (req, res) => {
   try {
     console.log("Received data:", req.body);
-    
+
     const user = new User({
       Name: req.body.FullName,
       Mobile: req.body.MobileNumber,
@@ -32,7 +36,7 @@ app.post('/', async (req, res) => {
     res.status(201).json({ message: "Success!" }) // SEND A MESSAGE
     console.log("Saved user:", user)
   } catch (error) {
-    console.error("Error:", error.message); 
+    console.error("Error:", error.message);
     res.status(400).json({ error: error.message }) // SEND ERROR MESSAGE
   }
 })
