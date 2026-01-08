@@ -1,26 +1,36 @@
 import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
-import User from './Schema/Schema.js'
+import User from '../Schema/Schema.js'
 
 const app = express()
-const port = 3000
 
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST']
-}))
+// CORS must be configured before routes
+app.use(cors())
 app.use(express.json())
 
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+// Connect to MongoDB
+let isConnected = false;
+
+const connectDB = async () => {
+  if (isConnected) return;
+  
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    isConnected = true;
+    console.log('MongoDB connected');
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+  }
+};
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
 app.post('/', async (req, res) => {
+  await connectDB();
+  
   try {
     console.log("Received data:", req.body);
 
@@ -40,12 +50,4 @@ app.post('/', async (req, res) => {
   }
 })
 
-// Only for local development
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-  })
-}
-
-// Export for Vercel
 export default app;
