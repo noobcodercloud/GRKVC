@@ -2,7 +2,6 @@ const Courses = [
     'Certificate Course in Programming',
     'Certification in Computer Application',
     'Certificate in Computer Financial Accounting',
-    'Certificate in Auto Cad (plumbing)',
     'Certificate in Autocad (electrical)',
     'Certificate in Tally ERP 9.0',
     'Certificate in Software Testing',

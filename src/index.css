@@ -61,3 +61,23 @@
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
 }
+
+@keyframes loading {
+  from {}
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scaling {
+  from {}
+  to {
+    scale: calc(1.4);
+  }
+}
+
+.spinningLoading {
+  animation: 
+    loading 1s ease-in-out infinite,
+    scaling 0.5s ease-in infinite alternate;
+}

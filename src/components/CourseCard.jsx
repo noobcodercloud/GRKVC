@@ -6,14 +6,17 @@ import DownArrow from '../assets/arrow-down.png'
 function CourseCard(props) {
   const [IsExpanded, setIsExpanded] = useState(false)
   const [ArrowState, setArrowState] = useState(DownArrow)
+  const [ShowMoreOrLess, setShowMoreOrLess] = useState('Show More...')
   const [ContentHeight, setContentHeight] = useState('160px')
   const ContentRef = useRef(null)
   const handleChange = () => {
     if (IsExpanded) {
       setArrowState(DownArrow)
+      setShowMoreOrLess("Show More...")
       setContentHeight(`160px`);
     } else {
       setArrowState(UpArrow)
+      setShowMoreOrLess("Show Less")
       setContentHeight(`${ContentRef.current.scrollHeight}px`);
     }
     setIsExpanded(!IsExpanded)
@@ -36,7 +39,8 @@ function CourseCard(props) {
             >
               {props.courseList}
             </div>
-            <div className={`bg-gray-100 border-t border-gray-200 hover:bg-gray-200 py-1 flex items-center justify-center transition-all cursor-pointer`} onClick={handleChange}>
+            <div className={`bg-gray-100 border-t border-gray-200 hover:bg-gray-200 py-1 flex items-center justify-center transition-all cursor-pointer gap-5 group`} onClick={handleChange}>
+              <span className='font-semibold text-shadow-xs text-sm group-hover:font-bold transition-all'>{ShowMoreOrLess}</span>
               <img src={ArrowState} alt="downArrow" width={18} className='cursor-pointer' />
             </div>
           </div>

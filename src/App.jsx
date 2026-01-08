@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useRef } from 'react'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/Hero.jsx'
 import CoursesList from './components/CoursesList.jsx'
@@ -9,14 +9,22 @@ import './App.css'
 
 function App() {
 
+  const ContactUsRef = useRef(null)
+  const handleClick = () => {
+    ContactUsRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+    console.log("Yes, clicked.")
+  }
+
   return (
     <>
       <div className='font-outfit'>
         <Navbar />
         <Hero />
-        <Searchbar />
-        <CoursesList />
-        <ContactUs />
+        <Searchbar ScrollRef={ContactUsRef} />
+        <CoursesList ScrollRef={ContactUsRef} />
+        <div ref={ContactUsRef}>
+          <ContactUs />
+        </div>
         <Footer />
         <div className='bg-[#F9BE4D] text-center text-sm'>
           Developed with ❤️ by <a href="https://github.com/noobcodercloud" target='_blank' className='text-blue-800'>Kirat Dhiman</a>

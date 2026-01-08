@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -11,12 +11,13 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 // Import images
-import One from '../assets/display_01.jpg'
-import Two from '../assets/display_02.jpg'
-import Three from '../assets/display_03.jpg'
-import Four from '../assets/display_04.jpg'
-import Five from '../assets/display_05.jpg'
-import Six from '../assets/display_06.jpg'
+import One from '../assets/collages/collage_1.png'
+import Two from '../assets/collages/collage_2.png'
+import Three from '../assets/collages/collage_3.png'
+import Four from '../assets/collages/collage_4.jpg'
+import Five from '../assets/collages/collage_5.jpg'
+import Six from '../assets/collages/collage_6.jpg'
+import Seven from '../assets/collages/collage_7.jpg'
 
 export default function Gallery() {
     return (
@@ -61,6 +62,9 @@ export default function Gallery() {
                     </SwiperSlide>
                     <SwiperSlide>
                         <img src={Six} alt="IMAGE" className='w-full h-full object-contain' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={Seven} alt="IMAGE" className='w-full h-full object-contain' />
                     </SwiperSlide>
                 </Swiper>
             </div >

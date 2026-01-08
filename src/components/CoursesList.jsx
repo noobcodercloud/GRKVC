@@ -2,12 +2,16 @@ import React from 'react'
 import CourseCard from './CourseCard'
 import Courses from './courseData.js'
 
-function CoursesList() {
+function CoursesList(props) {
+
+  const handleClick = () => {
+    props.ScrollRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
 
   const ComputerCourses = {
     ThreeMonthCourseList: Courses.ComputerCourses.ThreeMonthsCourses.coursesList.map(course => {
       return (
-        <div className='w-full font-Montserrat' key={course}>
+        <div className='w-full font-Montserrat' key={course} onClick={handleClick}>
           <div className='py-5 px-5 border-b border-gray-300 w-full hover:bg-gray-200'>
             {course}
           </div>
@@ -16,7 +20,7 @@ function CoursesList() {
     }),
     SixMonthCourseList: Courses.ComputerCourses.SixMonthsCourses.coursesList.map(course => {
       return (
-        <div className='w-full font-Montserrat' key={course}>
+        <div className='w-full font-Montserrat' key={course} onClick={handleClick}>
           <div className='py-5 px-5 border-b border-gray-300 w-full hover:bg-gray-200'>
             {course}
           </div>
@@ -24,7 +28,7 @@ function CoursesList() {
     }),
     OneYearCourseList: Courses.ComputerCourses.OneYearCourses.coursesList.map(course => {
       return (
-        <div className='w-full font-Montserrat' key={course}>
+        <div className='w-full font-Montserrat' key={course} onClick={handleClick}>
           <div className='py-5 px-5 border-b border-gray-300 w-full hover:bg-gray-200'>
             {course}
           </div>
@@ -34,7 +38,7 @@ function CoursesList() {
 
   const TeachingTraining = Courses.TeacherTraining.coursesList.map(course => {
     return (
-      <div className='w-full font-Montserrat' key={course}>
+      <div className='w-full font-Montserrat' key={course} onClick={handleClick}>
         <div className='py-5 px-5 border-b border-gray-300 w-full hover:bg-gray-200'>
           {course}
         </div>
