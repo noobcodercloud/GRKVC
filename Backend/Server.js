@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
-import User from '../Schema/Schema.js'
+import User from './Schema/Schema.js'
 
 const app = express()
 
