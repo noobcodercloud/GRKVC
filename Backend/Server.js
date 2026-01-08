@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-mongoose.connect('mongodb+srv://kirat6455_db_user:kqnZNVzAKsvK2iSy@cluster0.ccwango.mongodb.net/');
+mongoose.connect(process.env.MONGODB_URI)
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
