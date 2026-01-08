@@ -15,7 +15,7 @@ function ContactUs() {
   } = useForm()
 
   const onSubmit = async (data) => {
-    console.log("Sending data:", data); 
+    console.log("Sending data:", data); // ADD THIS LINE
 
     const res = await fetch(`${import.meta.env.VITE_API_URL}/`, {
       method: 'POST',
@@ -25,9 +25,9 @@ function ContactUs() {
       body: JSON.stringify(data)
     });
 
-    console.log("Response status:", res.status); 
+    console.log("Response status:", res.status); // ADD THIS LINE
     const dt = await res.text();
-    console.log("Response body:", dt); 
+    console.log("Response body:", dt); // ADD THIS LINE
 
     setsubmitBtnVal("Submitted!")
     setisSubmittedManual(true)
