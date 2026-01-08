@@ -25,7 +25,7 @@ const connectDB = async () => {
 };
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('Redirect to grkvcinfopoint.vercel.app')
 })
 
 app.post('/', async (req, res) => {
