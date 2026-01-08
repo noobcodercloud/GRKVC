@@ -7,9 +7,9 @@ const app = express()
 const port = 3000
 
 app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type']
+  origin: ['https://grkvc.vercel.app', 'https://grkvc-infopoint.vercel.app'],
+  methods: ['GET', 'POST'],
+  credentials: true
 }))
 app.use(express.json())
 
